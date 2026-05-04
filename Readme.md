@@ -1,17 +1,53 @@
-# 借助 GitHub Actions 的 OpenWrt 在线自动编译.
+# 借助 GitHub Actions 的 OpenWrt 在线自动编译
 
-#### hanwckf大佬mt798x闭源仓库- [hanwckf/immortalwrt-mt798x](https://github.com/hanwckf/immortalwrt-mt798x).
+复刻仓库，点击 Actions 按钮，选择 hanwckf-build，点击 Run workflow 按钮，等待编译完成即可。
 
-#### 237大佬mt798x闭源仓库- [padavanonly/immortalwrt-mt798x](https://github.com/padavanonly/immortalwrt-mt798x).
+原仓库 <https://github.com/lgs2007m/Actions-OpenWrt>
 
-#### hanwckf大佬mt798x uboot仓库- [hanwckf/bl-mt798x](https://github.com/hanwckf/bl-mt798x).
+自用，For personal use only.
 
-### 刷砖也不怕！可以通过串口救砖：[MediaTek Filogic 系列路由器串口救砖教程](https://www.cnblogs.com/p123/p/18046679)
+SN-R1 和 HY3000 所使用仓库 [Yuzhii0718/immortalwrt-mt798x-hanwckf](https://github.com/Yuzhii0718/immortalwrt-mt798x-hanwckf)
 
-### 我的刷机教程：[Tutorial](https://github.com/lgs2007m/Actions-OpenWrt/tree/main/Tutorial)
-### 包含教程的刷机文件：[Router-Flashing-Files](https://github.com/lgs2007m/Actions-OpenWrt/releases/tag/Router-Flashing-Files)
+> Philips hy3000
+
+CPU: [MT7981BA](https://www.edaltech.com/products/mediatek/mt7981ba-a.html)
+RAM: [1GB DDR4 SCY DP4DQ8C16FJB](https://www.shichuangyi.com/DRAMnacunmozu/21.html)
+ROM: [128GB eMMC SCY E128CYMT2ABE00](https://www.shichuangyi.com/qianrushicunchuxinpian/7.html)
+Switch: [MT7531AE](https://www.edaltech.com/products/mediatek/mt7531ae.html)
+RF: [MT7976CN](https://www.edaltech.com/products/mediatek/mt7976cn-b.html)
+
+> SN-R1
+
+CPU: [MT7981BA](https://www.edaltech.com/products/mediatek/mt7981ba-a.html)
+RAM: [1GB DDR4 SAMSUNG K4A8G165WC-BCTD](https://semiconductor.samsung.com/dram/ddr/ddr4/k4a8g165wc-bctd/)
+ROM: [128GB eMMC HIKSEMI HSEMSDS7D2B128G](https://www.hiksemitech.com/cn/homepage/products/embeddedchip/em-c.html)
+Switch: [MT7531AE](https://www.edaltech.com/products/mediatek/mt7531ae.html)
+RF: [MT7976CN](https://www.edaltech.com/products/mediatek/mt7976cn-b.html)
+
+## hanwckf
+
+mt798x闭源仓库- [hanwckf/immortalwrt-mt798x](https://github.com/hanwckf/immortalwrt-mt798x)
+
+## Padavanonly
+
+mt798x闭源仓库- [padavanonly/immortalwrt-mt798x](https://github.com/padavanonly/immortalwrt-mt798x)
+
+## 救砖
+
+[MediaTek Filogic 系列路由器串口救砖教程](https://www.cnblogs.com/p123/p/18046679)
+
+### LGS2007 教程
+
+[Tutorial](https://github.com/lgs2007m/Actions-OpenWrt/tree/main/Tutorial)
+
+### 包含教程的刷机文件
+
+[Router-Flashing-Files](https://github.com/lgs2007m/Actions-OpenWrt/releases/tag/Router-Flashing-Files)
+
 ---
-## MT7986 hanwckf workflow 手动运行可选项：
+
+## MT7986 hanwckf workflow 手动运行可选项
+
 <details>
 <summary>展开详细</summary>
 
@@ -23,17 +59,21 @@
 - [ ] Not build luci-app-dockerman
 
 - #### 说明
+
 百里源码中的WAN、LAN地址顺序已修复并固定了WiFi MAC地址，交换机驱动已改为使用GSW。  
 储留箱S20P可同时编译DSA和GSW两种交换机驱动的固件，不用选择。  
 YVR X6使用GSW，不可选择。  
 
 - #### 1. Select Source Branch
+
 默认使用 [lgs2007m/immortalwrt-mt798x](https://github.com/lgs2007m/immortalwrt-mt798x) 的 [v7672](https://github.com/lgs2007m/immortalwrt-mt798x/tree/v7672) 分支，该分支支持mt_wifi v7.6.7.2和v7.6.6.1，conninfra datconf warp使用v7.6.7.2版本配套的； [v7661](https://github.com/lgs2007m/immortalwrt-mt798x/tree/v7661) 分支也支持mt_wifi v7.6.7.2和v7.6.6.1，conninfra datconf warp改为v7.6.6.1版本配套的旧版。v7.6.7.3版本驱动听说有问题，未测试，观望中。  
 
 - #### 2. Set LAN IP Address
+
 设置LAN IP地址（路由器登录地址），默认192.168.1.1。  
 
 - #### 3. Choose WiFi Driver
+
 默认使用WiFi驱动版本v7.6.7.2-fw-20240823(recommend)。  
 mt_wifi的firmware可选，warp默认使用v7.6.7.2配套的warp_20231229-5f71ec，firmware用驱动自带的，不可选。  
 驱动版本v7.6.7.2-fw-default不建议使用，我使用5G无线，电脑打CS2同时手机刷视频，CS2会延迟增高卡顿。  
@@ -50,6 +90,7 @@ fw-20221208 使用mt7986-7.6.7.0-20221209-b9c02f-obj驱动包的fw-20221208
 fw-20230306 使用YVR X6的fw-20230306  
 fw-20230421 使用mtk-openwrt-feeds(20230421)的fw-20230421  
 fw-20231024 使用mtk-openwrt-feeds(20231024)的fw-20231024  
+
 ```
 # SSH查看内核版本
 uname -a
@@ -69,6 +110,7 @@ cat /proc/warp_ctrl/warp0/wo
 ```
 
 - #### 4. Choose Switch Driver
+
 该选项为百里专用，默认使用GSW交换机驱动，可选DSA交换机驱动。  
 GSW：Gigabit Switch swconfig 模式，有交换机配置插件，不过京东云百里AX6000的WAN是单独接CPU的2.5G PHY RTL8221B，不接在MT7531交换机上，所以WAN不支持在交换机配置插件中设置VLAN。  
 DSA：Distributed Switch Architecture 分布式交换架构模式，DSA没有单独的交换机配置插件，但在“网口”-“接口”-“设备”选项卡中的br-lan设备中的网桥VLAN过滤中可以查看网口状态设置VLAN。  
@@ -77,6 +119,7 @@ DSA：Distributed Switch Architecture 分布式交换架构模式，DSA没有单
 两者具体区别可以参考OpenWrt社区资料：[converting-to-dsa](https://openwrt.org/docs/guide-user/network/dsa/converting-to-dsa) [dsa-mini-tutorial](https://openwrt.org/docs/guide-user/network/dsa/dsa-mini-tutorial)  
 
 - #### 5. Use luci-app-mtk wifi config
+
 该选项默认关闭，即按.mtwifi-cfg.config配置文件，使用mtwifi-cfg配置工具，需要使用旧的luci-app-mtk无线配置工具请打钩。  
 mtwifi-cfg：为mtwifi设计的无线配置工具，兼容openwrt原生luci和netifd，可调整无线驱动的参数较少，配置界面美观友好。  
 luci-app-mtk：源自mtk-sdk提供的配置工具，需要配合wifi-profile脚本使用，可调整无线驱动的几乎所有参数，配置界面较为简陋。  
@@ -88,14 +131,16 @@ CONFIG_PACKAGE_mtwifi-cfg=y
 CONFIG_PACKAGE_lua-cjson=y  
 
 - #### 6. Not build luci-app-dockerman
+
 该选项默认关闭，即按.mtwifi-cfg.config配置文件编译dockerman，不需要编译dockerman请打钩。  
 .mtwifi-cfg.config配置文件中已设置编译dockerman：  
 CONFIG_PACKAGE_luci-app-dockerman=y  
 
 - #### 百里改无线发射功率
+
 MT7976/MT7915射频前端芯片修改eeprom v2参考[mt7981_factory_txpwr_patch](https://github.com/4n0n4/mt7981_factory_txpwr_patch/blob/main/README_EN.md)。  
 2.4 GHz: MT_EE_TX0_POWER_2G_V2 @ 0x441 (4 bytes)  
-5 GHz: MT_EE_TX0_POWER_5G_V2 @ 0x445 (20 bytes)   
+5 GHz: MT_EE_TX0_POWER_5G_V2 @ 0x445 (20 bytes)
 百里5G无线发射功率23dBm，2.4G发送功率25dBm。  
 其中各个功率十六进制数据代表如下：  
 23dBm x2A  
@@ -103,14 +148,17 @@ MT7976/MT7915射频前端芯片修改eeprom v2参考[mt7981_factory_txpwr_patch]
 25dBm x2C 或 x2D  
 百里直接SSH使用下面命令，软修改（即不修改factory分区）5G为24dBm，修改好之后reboot重启即可。  
 MT7986_ePAeLNA_EEPROM_AX6000.bin文件只在固件第一次启动时从factory复制出来，所以修改一次即可。  
+
 ```
 hex_value='\x2B'
 printf "$hex_value%.0s" $(seq 1 20) > /tmp/tmp.bin
 dd if=/tmp/tmp.bin of=/lib/firmware/MT7986_ePAeLNA_EEPROM_AX6000.bin bs=1 seek=$((0x445)) conv=notrunc
 ```
+
 当然也可以直接硬修改factory分区，使得以后每次刷新固件都不用再修改了。  
 首先备份好原厂factory分区，然后修改MT7986_ePAeLNA_EEPROM_AX6000.bin并写入factory分区，再备份一次factory分区。  
 自行到tmp下载保存好备份，然后reboot重启即可。  
+
 ```
 hex_value='\x2B'
 printf "$hex_value%.0s" $(seq 1 20) > /tmp/tmp.bin
@@ -119,12 +167,15 @@ dd if=/tmp/tmp.bin of=/lib/firmware/MT7986_ePAeLNA_EEPROM_AX6000.bin bs=1 seek=$
 dd if=/tmp/tmp.bin of=$(blkid -t PARTLABEL=factory -o device) bs=1 seek=$((0x445)) conv=notrunc
 dd if=$(blkid -t PARTLABEL=factory -o device) of=/tmp/mmcblk0px_factory.bin conv=fsync
 ```
+
 - #### YVR X6改无线发射功率
+
 YVR X6的2.4G 5G天线是通过双工器进行合路输出，出厂是2.4G 25dBm 5G 25dBm。  
 25dBm x2E  
 26dBm x30  
 下面直接硬修改factory分区，把2.4G 5G同时拉到26dBm。  
 自行到tmp下载保存好备份，然后reboot重启即可。  
+
 ```
 hex_value='\x30'
 printf "$hex_value%.0s" $(seq 1 24) > /tmp/tmp.bin
@@ -134,12 +185,16 @@ dd if="/dev/${mtd_dev}" of=/tmp/eeprom.bin
 dd if=/tmp/tmp.bin of=/tmp/eeprom.bin bs=1 seek=$((0x441)) conv=notrunc
 mtd write /tmp/eeprom.bin Factory
 ```
+
 - #### 储留箱S20P改无线发射功率
+
 详见刷机文件中的图片。  
 </details>
 
 ---
-## MT7981-eMMC-USB hanwckf workflow 手动运行可选项：
+
+## MT7981-eMMC-USB hanwckf workflow 手动运行可选项
+
 <details>
 <summary>展开详细</summary>
 
@@ -151,18 +206,22 @@ mtd write /tmp/eeprom.bin Factory
 - [ ] Not build luci-app-dockerman
 
 - #### 说明
+
 源码中的WAN、LAN地址顺序已修复  
 RAX3000M算力版（RAX3000M-eMMC）的eMMC默认使用26MHz频率  
 RAX3000Z增强版（XR30-eMMC）的eMMC默认使用52MHz频率  
 BT-R320的eMMC默认使用52MHz频率  
 
 - #### 1. Select Source Branch
+
 默认使用 [lgs2007m/immortalwrt-mt798x](https://github.com/lgs2007m/immortalwrt-mt798x) 的 [v7672](https://github.com/lgs2007m/immortalwrt-mt798x/tree/v7672) 分支，该分支支持mt_wifi v7.6.7.2和v7.6.6.1，conninfra datconf warp使用v7.6.7.2版本配套的； [v7661](https://github.com/lgs2007m/immortalwrt-mt798x/tree/v7661) 分支也支持mt_wifi v7.6.7.2和v7.6.6.1，conninfra datconf warp改为v7.6.6.1版本配套的旧版。v7.6.7.3版本驱动听说有问题，未测试，观望中。  
 
 - #### 2. Set LAN IP Address
+
 设置LAN IP地址（路由器登录地址），默认192.168.1.1。  
 
 - #### 3. Choose WiFi Driver
+
 默认使用WiFi驱动版本v7.6.7.2-fw-20240823(recommend)。  
 mt_wifi的firmware可选，warp默认使用v7.6.7.2配套的warp_20231229-5f71ec，firmware用驱动自带的，不可选。  
 【mt7981的机子上未测试，建议直接使用推荐的选项。】  
@@ -179,6 +238,7 @@ fw-20230330 使用提取自TP-XDR3030固件的fw-20230330
 fw-20230411 使用提取自H3C-NX30Pro固件的fw-20230411  
 fw-20230717 使用提取自Xiaomi-AX3000T固件的fw-20230717  
 fw-20231024 使用mtk-openwrt-feeds(20231024)的fw-20231024  
+
 ```
 # SSH查看内核版本
 uname -a
@@ -195,12 +255,14 @@ cat /proc/warp_ctrl/warp0/wo
 ```
 
 - #### 4. Use nx30pro eeprom
+
 该选项默认开启，即使用nx30pro的高功率eeprom，不需要请取消打钩。  
 不使用独立fem无线功放的MT7981B路由器可以通过替换高功率的eeprom提高信号强度。  
 RAX3000M/XR30的factory eeprom设置功率不高，2.4G是23dBm、5G是22dBm，使用NX30 PRO的高功率eeprom，2.4G可提升至25dBm、5G提升至24dBm。  
 开启该选项会使用NX30 PRO的eeprom替换掉固件中的MT7981_iPAiLNA_EEPROM.bin文件。  
 
 - #### 5. Use luci-app-mtk wifi config
+
 该选项默认关闭，即按.mtwifi-cfg.config配置文件，使用mtwifi-cfg配置工具，需要使用旧的luci-app-mtk无线配置工具请打钩。  
 mtwifi-cfg：为mtwifi设计的无线配置工具，兼容openwrt原生luci和netifd，可调整无线驱动的参数较少，配置界面美观友好。  
 luci-app-mtk：源自mtk-sdk提供的配置工具，需要配合wifi-profile脚本使用，可调整无线驱动的几乎所有参数，配置界面较为简陋。  
@@ -212,12 +274,15 @@ CONFIG_PACKAGE_mtwifi-cfg=y
 CONFIG_PACKAGE_lua-cjson=y  
 
 - #### 6. Not build luci-app-dockerman
+
 该选项默认关闭，即按.mtwifi-cfg.config配置文件编译dockerman，不需要编译dockerman请打钩。  
 .mtwifi-cfg.config配置文件中已设置编译dockerman：  
 CONFIG_PACKAGE_luci-app-dockerman=y  
 </details>
 
 ---
+
 ### 感谢P3TERX的Actions-OpenWrt
+
 - [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
 [Read the details in my blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
