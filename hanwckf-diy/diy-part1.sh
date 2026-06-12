@@ -13,6 +13,7 @@
 # Add a feed source
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 #git clone https://github.com/messense/aliyundrive-webdav package/messense
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 git clone https://github.com/animegasan/luci-app-wolplus.git package/luci-app-wolplus
 git clone https://github.com/sbwml/luci-app-openlist2 package/openlist2
